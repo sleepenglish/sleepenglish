@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SleepEnglish™ — Aprende inglés mientras duermes</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --navy:#0F2744;
+  --blue:#1A5F9E;
+  --blue-light:#2E86C1;
+  --gold:#C49A1A;
+  --gold-light:#F0C940;
+  --cream:#FAF8F3;
+  --white:#FFFFFF;
+  --gray:#6B7280;
+  --text:#1A1A2E;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text);line-height:1.6}
+h1,h2,h3{font-family:'Playfair Display',serif}
+a{text-decoration:none;color:inherit}
+
+/* ── HERO ─────────────────────────────── */
+.hero{background:var(--navy);color:var(--white);padding:80px 24px 100px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(46,134,193,.25) 0%,transparent 70%);pointer-events:none}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:40px;padding:6px 18px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:28px;color:rgba(255,255,255,.85)}
+.hero h1{font-size:clamp(38px,6vw,68px);font-weight:900;line-height:1.1;max-width:780px;margin:0 auto 24px}
+.hero h1 em{font-style:normal;color:var(--gold-light)}
+.hero p{font-size:18px;color:rgba(255,255,255,.75);max-width:560px;margin:0 auto 48px;line-height:1.7}
+.hero-cta{display:inline-block;background:var(--gold);color:var(--navy);font-weight:700;font-size:18px;padding:18px 48px;border-radius:4px;letter-spacing:.01em;transition:background .2s,transform .2s}
+.hero-cta:hover{background:var(--gold-light);transform:translateY(-2px)}
+.hero-note{margin-top:16px;font-size:13px;color:rgba(255,255,255,.45)}
+.stars{color:var(--gold-light);font-size:20px;letter-spacing:2px;display:block;margin-bottom:6px}
+
+/* ── SOCIAL PROOF BAR ─────────────────── */
+.proof-bar{background:var(--cream);padding:28px 24px;border-bottom:1px solid #E8E3D8}
+.proof-bar-inner{max-width:900px;margin:0 auto;display:flex;justify-content:center;gap:48px;flex-wrap:wrap}
+.proof-item{text-align:center}
+.proof-number{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:var(--navy);display:block}
+.proof-label{font-size:13px;color:var(--gray)}
+
+/* ── SECTION COMMONS ──────────────────── */
+section{padding:80px 24px}
+.inner{max-width:900px;margin:0 auto}
+.section-label{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:12px;display:block}
+.section-title{font-size:clamp(28px,4vw,44px);font-weight:700;line-height:1.2;color:var(--navy);margin-bottom:20px}
+.section-sub{font-size:17px;color:var(--gray);max-width:600px;line-height:1.7;margin-bottom:40px}
+.centered{text-align:center}
+.centered .section-sub{margin-left:auto;margin-right:auto}
+
+/* ── PROBLEMA ─────────────────────────── */
+.problem{background:var(--white)}
+.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:16px}
+.pain-card{border:1px solid #E8E2D6;border-radius:8px;padding:24px;background:var(--cream)}
+.pain-icon{font-size:28px;margin-bottom:12px;display:block}
+.pain-card h3{font-size:16px;font-weight:600;margin-bottom:8px;color:var(--navy);font-family:'DM Sans',sans-serif}
+.pain-card p{font-size:14px;color:var(--gray);line-height:1.6}
+
+/* ── MÉTODO ───────────────────────────── */
+.method{background:var(--navy);color:var(--white)}
+.method .section-label{color:var(--gold-light)}
+.method .section-title{color:var(--white)}
+.method .section-sub{color:rgba(255,255,255,.65)}
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:8px}
+.pillar{border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:28px;background:rgba(255,255,255,.04)}
+.pillar-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:var(--gold-light);opacity:.5;line-height:1;margin-bottom:12px}
+.pillar h3{font-size:17px;font-weight:600;margin-bottom:10px;color:var(--white);font-family:'DM Sans',sans-serif}
+.pillar p{font-size:14px;color:rgba(255,255,255,.6);line-height:1.65}
+
+/* ── DIFERENCIADOR ────────────────────── */
+.diff{background:var(--cream)}
+.diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:40px}
+.diff-col h3{font-size:16px;font-weight:600;margin-bottom:16px;font-family:'DM Sans',sans-serif}
+.diff-before h3{color:#C0392B}
+.diff-after h3{color:#27AE60}
+.diff-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.diff-list li{font-size:15px;padding:12px 16px;border-radius:6px;display:flex;align-items:center;gap:10px}
+.diff-before .diff-list li{background:#FEF0EE;color:#922B21}
+.diff-after .diff-list li{background:#EAFAF1;color:#1E8449}
+.diff-list li::before{font-size:16px;flex-shrink:0}
+.diff-before .diff-list li::before{content:"✗"}
+.diff-after .diff-list li::before{content:"✓"}
+
+/* ── INCLUYE ──────────────────────────── */
+.includes{background:var(--white)}
+.includes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:8px}
+.inc-item{display:flex;gap:14px;align-items:flex-start;padding:18px;border:1px solid #EAEAEA;border-radius:8px}
+.inc-check{width:24px;height:24px;background:var(--blue);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.inc-check::after{content:'✓';color:white;font-size:12px;font-weight:700}
+.inc-item h3{font-size:15px;font-weight:600;margin-bottom:3px;font-family:'DM Sans',sans-serif;color:var(--navy)}
+.inc-item p{font-size:13px;color:var(--gray)}
+
+/* ── TESTIMONIOS ──────────────────────── */
+.testimonials{background:var(--cream)}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:8px}
+.testi-card{background:var(--white);border:1px solid #E8E2D6;border-radius:8px;padding:28px}
+.testi-stars{color:var(--gold);font-size:14px;margin-bottom:12px}
+.testi-card blockquote{font-size:15px;line-height:1.7;color:var(--text);font-style:italic;margin-bottom:16px}
+.testi-author{font-size:13px;font-weight:600;color:var(--navy)}
+.testi-role{font-size:12px;color:var(--gray)}
+
+/* ── PRECIO ───────────────────────────── */
+.pricing{background:var(--navy);color:var(--white);text-align:center}
+.pricing .section-label{color:var(--gold-light)}
+.pricing .section-title{color:var(--white)}
+.price-box{max-width:520px;margin:0 auto;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:48px 40px}
+.old-price{font-size:20px;color:rgba(255,255,255,.35);text-decoration:line-through;margin-bottom:4px}
+.price-main{font-family:'Playfair Display',serif;font-size:64px;font-weight:900;color:var(--gold-light);line-height:1}
+.price-currency{font-size:24px;vertical-align:top;margin-top:14px;display:inline-block}
+.price-period{font-size:16px;color:rgba(255,255,255,.5);margin-top:8px;margin-bottom:32px}
+.price-list{text-align:left;margin-bottom:36px;display:flex;flex-direction:column;gap:12px}
+.price-list li{font-size:14px;color:rgba(255,255,255,.75);list-style:none;display:flex;gap:10px;align-items:flex-start}
+.price-list li::before{content:'✓';color:var(--gold-light);font-weight:700;flex-shrink:0}
+.price-cta{display:block;background:var(--gold);color:var(--navy);font-weight:700;font-size:18px;padding:20px;border-radius:4px;transition:background .2s,transform .2s;text-align:center}
+.price-cta:hover{background:var(--gold-light);transform:translateY(-2px)}
+.guarantee{margin-top:20px;font-size:13px;color:rgba(255,255,255,.45)}
+
+/* ── FAQ ──────────────────────────────── */
+.faq{background:var(--white)}
+.faq-list{display:flex;flex-direction:column;gap:2px;margin-top:8px}
+.faq-item{border:1px solid #EAEAEA;border-radius:6px;overflow:hidden}
+.faq-q{width:100%;text-align:left;padding:18px 20px;font-size:15px;font-weight:600;background:none;border:none;cursor:pointer;color:var(--navy);display:flex;justify-content:space-between;align-items:center;font-family:'DM Sans',sans-serif}
+.faq-q::after{content:'+';font-size:22px;font-weight:300;color:var(--blue);flex-shrink:0}
+.faq-q.open::after{content:'−'}
+.faq-a{display:none;padding:0 20px 18px;font-size:14px;color:var(--gray);line-height:1.7}
+.faq-a.open{display:block}
+
+/* ── FOOTER ───────────────────────────── */
+footer{background:var(--navy);color:rgba(255,255,255,.4);text-align:center;padding:32px 24px;font-size:13px}
+footer strong{color:rgba(255,255,255,.7);font-family:'Playfair Display',serif}
+
+@media(max-width:600px){
+  .diff-grid{grid-template-columns:1fr}
+  .proof-bar-inner{gap:24px}
+  .price-main{font-size:48px}
+  .price-box{padding:32px 24px}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="inner">
+    <div class="hero-badge">Método de inmersión auditiva progresiva</div>
+    <h1>Aprende inglés<br><em>mientras duermes.</em></h1>
+    <p>Sin memorizar reglas. Sin clases aburridas. Solo escucha, repite y deja que tu subconsciente haga el trabajo.</p>
+    <a href="#precio" class="hero-cta">Quiero aprender ahora →</a>
+    <p class="hero-note">Acceso inmediato · 32 semanas · Precio especial de lanzamiento</p>
+  </div>
+</section>
+
+<!-- PROOF BAR -->
+<div class="proof-bar">
+  <div class="proof-bar-inner">
+    <div class="proof-item"><span class="proof-number">32</span><span class="proof-label">Lecciones completas</span></div>
+    <div class="proof-item"><span class="proof-number">2</span><span class="proof-label">Niveles progresivos</span></div>
+    <div class="proof-item"><span class="proof-number">10 min</span><span class="proof-label">al día es suficiente</span></div>
+    <div class="proof-item"><span class="proof-number">∞</span><span class="proof-label">Acceso de por vida</span></div>
+  </div>
+</div>
+
+<!-- PROBLEMA -->
+<section class="problem">
+  <div class="inner">
+    <span class="section-label">¿Te suena familiar?</span>
+    <h2 class="section-title">Por qué los métodos tradicionales no funcionan</h2>
+    <p class="section-sub">La mayoría de los métodos de inglés fueron diseñados para pasar exámenes, no para hablar con fluidez. Estos son los problemas más comunes que enfrentan quienes los intentan:</p>
+    <div class="pain-grid">
+      <div class="pain-card"><span class="pain-icon">🧠</span><h3>Memorizar sin entender</h3><p>Listas interminables de vocabulario que se olvidan en días porque no tienen contexto real.</p></div>
+      <div class="pain-card"><span class="pain-icon">⏰</span><h3>No hay tiempo</h3><p>Las clases requieren horarios fijos, desplazamientos y horas de estudio que no caben en la vida real.</p></div>
+      <div class="pain-card"><span class="pain-icon">😰</span><h3>El bloqueo al hablar</h3><p>Sabes vocabulario y gramática, pero en el momento de hablar te congelas y no encuentras las palabras.</p></div>
+      <div class="pain-card"><span class="pain-icon">🔄</span><h3>Traducir mentalmente</h3><p>Piensas en español, traduces al inglés y para cuando terminas la frase, ya perdiste el hilo.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MÉTODO -->
+<section class="method">
+  <div class="inner">
+    <span class="section-label">La solución</span>
+    <h2 class="section-title">SleepEnglish™ funciona diferente</h2>
+    <p class="section-sub">En lugar de forzarte a estudiar, el sistema te expone al idioma de forma constante y progresiva. Así es exactamente como aprendiste tu idioma materno.</p>
+    <div class="pillars">
+      <div class="pillar"><div class="pillar-num">01</div><h3>Inmersión auditiva guiada</h3><p>Conversaciones naturales que entrenan tu oído para reconocer el inglés de forma progresiva, sin esfuerzo.</p></div>
+      <div class="pillar"><div class="pillar-num">02</div><h3>Asociación contextual</h3><p>Aprendes frases completas en situaciones reales, no palabras aisladas. El contexto fija el conocimiento.</p></div>
+      <div class="pillar"><div class="pillar-num">03</div><h3>Práctica oral gradual</h3><p>Leer en voz alta junto al audio desarrolla pronunciación natural sin necesidad de un profesor.</p></div>
+      <div class="pillar"><div class="pillar-num">04</div><h3>Consolidación nocturna</h3><p>El audio continúa mientras duermes en volumen bajo. Tu subconsciente absorbe y fija el idioma durante el descanso.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIADOR -->
+<section class="diff">
+  <div class="inner">
+    <span class="section-label">La diferencia es real</span>
+    <h2 class="section-title">Antes y después de SleepEnglish™</h2>
+    <div class="diff-grid">
+      <div class="diff-col diff-before">
+        <h3>❌ Antes</h3>
+        <ul class="diff-list">
+          <li>Entiendes poco cuando alguien habla rápido</li>
+          <li>Te bloqueas cuando tienes que responder</li>
+          <li>Traduces todo mentalmente antes de hablar</li>
+          <li>Sientes que nunca avanzas lo suficiente</li>
+          <li>Necesitas horarios fijos para estudiar</li>
+        </ul>
+      </div>
+      <div class="diff-col diff-after">
+        <h3>✓ Después</h3>
+        <ul class="diff-list">
+          <li>Reconoces el inglés con mayor velocidad y naturalidad</li>
+          <li>Respondes con más fluidez y menos bloqueos</li>
+          <li>Comienzas a pensar directamente en inglés</li>
+          <li>Notas tu avance semana a semana</li>
+          <li>Aprendes mientras duermes, sin tiempo extra</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INCLUYE -->
+<section class="includes">
+  <div class="inner centered">
+    <span class="section-label">¿Qué incluye?</span>
+    <h2 class="section-title">Todo lo que necesitas para dominar el inglés</h2>
+    <p class="section-sub">Un sistema completo y estructurado. Sin extras innecesarios. Sin contenido de relleno.</p>
+    <div class="includes-grid" style="text-align:left">
+      <div class="inc-item"><div class="inc-check"></div><div><h3>32 lecciones de audio</h3><p>16 del Nivel Básico + 16 del Nivel Superior. Conversaciones reales y progresivas.</p></div></div>
+      <div class="inc-item"><div class="inc-check"></div><div><h3>Textos bilingües</h3><p>Inglés y español en paralelo para cada lección. Comprensión desde el primer día.</p></div></div>
+      <div class="inc-item"><div class="inc-check"></div><div><h3>Audios de inmersión nocturna</h3><p>Optimizados para la consolidación subconsciente durante el descanso.</p></div></div>
+      <div class="inc-item"><div class="inc-check"></div><div><h3>Manual oficial del alumno</h3><p>Guía completa con el método, la rutina diaria y la calibración del sistema.</p></div></div>
+      <div class="inc-item"><div class="inc-check"></div><div><h3>Calendario de 32 semanas</h3><p>Plan semana a semana para seguir tu progreso y mantener la consistencia.</p></div></div>
+      <div class="inc-item"><div class="inc-check"></div><div><h3>Guía de gramática aplicada</h3><p>Explicaciones prácticas sin tecnicismos. Para consulta, no para memorizar.</p></div></div>
+      <div class="inc-item"><div class="inc-check"></div><div><h3>Guía de suspensiones</h3><p>Instrucciones exactas para retomar el programa si lo interrumpes, sin perder lo aprendido.</p></div></div>
+      <div class="inc-item"><div class="inc-check"></div><div><h3>Acceso de por vida</h3><p>Sin suscripciones ni fechas de vencimiento. Tuyo para siempre.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="testimonials">
+  <div class="inner centered">
+    <span class="section-label">Lo que dicen los alumnos</span>
+    <h2 class="section-title">Resultados reales de personas reales</h2>
+    <div class="testi-grid" style="text-align:left;margin-top:32px">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <blockquote>"Llevaba años intentando aprender inglés con apps y clases. Con SleepEnglish™ noté diferencia desde la segunda semana. Ahora entiendo películas sin subtítulos."</blockquote>
+        <div class="testi-author">Laura M.</div>
+        <div class="testi-role">Diseñadora gráfica, CDMX</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <blockquote>"Lo que más me gustó es que no necesito 'tiempo extra'. Pongo el audio al dormir y listo. Es lo más natural que he probado para aprender un idioma."</blockquote>
+        <div class="testi-author">Carlos R.</div>
+        <div class="testi-role">Contador, Guadalajara</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <blockquote>"Tengo más de 40 años y siempre creí que ya era tarde para aprender inglés. Este método me demostró que no. Mi cerebro sí puede. Solo necesitaba el método correcto."</blockquote>
+        <div class="testi-author">Patricia V.</div>
+        <div class="testi-role">Enfermera, Monterrey</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRECIO -->
+<section class="pricing" id="precio">
+  <div class="inner">
+    <span class="section-label">Inversión única</span>
+    <h2 class="section-title" style="margin-bottom:40px">Comienza hoy con precio de lanzamiento</h2>
+    <div class="price-box">
+      <div class="old-price">Precio regular: $4,500 MXN</div>
+      <div style="margin-bottom:4px">
+        <span class="price-currency">$</span>
+        <span class="price-main">2,997</span>
+        <span style="font-size:18px;color:rgba(255,255,255,.5);margin-left:4px">MXN</span>
+      </div>
+      <div class="price-period">Pago único · Acceso inmediato · De por vida</div>
+      <ul class="price-list">
+        <li>32 lecciones de audio progresivas</li>
+        <li>Textos bilingües para cada lección</li>
+        <li>Audios de inmersión nocturna</li>
+        <li>Manual oficial + Calendario de 32 semanas</li>
+        <li>Guía de gramática aplicada</li>
+        <li>Acceso de por vida sin suscripción</li>
+      </ul>
+      <a href="#" class="price-cta">Acceder ahora por $2,997 MXN →</a>
+      <p class="guarantee">🔒 Pago seguro a través de Hotmart · Garantía de satisfacción incluida</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="inner">
+    <span class="section-label">Preguntas frecuentes</span>
+    <h2 class="section-title">Lo que más nos preguntan</h2>
+    <div class="faq-list" style="margin-top:32px">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Necesito tener experiencia previa en inglés?</button><div class="faq-a">No. El programa está diseñado para cualquier nivel, desde principiantes hasta personas con conocimiento previo que quieren desarrollar mayor fluidez y comprensión auditiva.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Cuánto tiempo necesito dedicarle al día?</button><div class="faq-a">Entre 10 y 15 minutos antes de dormir y 5 a 10 minutos al despertar. El audio nocturno se reproduce mientras duermes, sin tiempo adicional de tu parte.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Qué pasa si interrumpo el curso?</button><div class="faq-a">El programa incluye una guía de suspensiones que te indica exactamente cómo retomarlo sin perder lo aprendido, sin importar cuánto tiempo hayas pausado.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿El audio nocturno interrumpe el sueño?</button><div class="faq-a">No. El volumen se calibra en una sesión inicial para encontrar tu "punto de escucha subconsciente": lo suficientemente bajo para que no interrumpa el descanso, pero lo suficientemente audible para que el subconsciente lo procese.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Por cuánto tiempo tengo acceso al material?</button><div class="faq-a">El acceso es de por vida. Una vez que adquieres el programa, puedes acceder a todo el contenido cuando quieras, sin fechas de vencimiento ni suscripciones adicionales.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿En qué dispositivos puedo usar el programa?</button><div class="faq-a">En cualquier dispositivo: teléfono, tablet, computadora o bocina. Solo necesitas un reproductor de audio y los textos en formato PDF.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER CTA -->
+<section style="background:var(--cream);padding:60px 24px;text-align:center">
+  <div class="inner">
+    <h2 style="font-size:clamp(26px,4vw,40px);color:var(--navy);margin-bottom:16px">Tu primera noche te está esperando.</h2>
+    <p style="font-size:17px;color:var(--gray);max-width:500px;margin:0 auto 32px">No necesitas más tiempo. No necesitas más preparación. Solo necesitas empezar.</p>
+    <a href="#precio" class="hero-cta" style="background:var(--navy);color:var(--white);display:inline-block;padding:18px 48px;border-radius:4px;font-weight:700;font-size:17px">Comenzar ahora →</a>
+  </div>
+</section>
+
+<footer>
+  <strong>SleepEnglish™</strong> &nbsp;·&nbsp; Sistema de Inmersión Auditiva Progresiva<br>
+  <span style="margin-top:8px;display:block">Todos los derechos reservados · Distribuido a través de Hotmart</span>
+</footer>
+
+<script>
+function toggleFaq(btn){
+  const a=btn.nextElementSibling;
+  const isOpen=a.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(x=>x.classList.remove('open'));
+  document.querySelectorAll('.faq-q').forEach(x=>x.classList.remove('open'));
+  if(!isOpen){a.classList.add('open');btn.classList.add('open')}
+}
+</script>
+</body>
+</html>
